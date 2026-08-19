@@ -1,8 +1,8 @@
 const mysql = require('mysql2/promise');
 const dotenv = require('dotenv');
-
+// Importing the dependencies and environment setup
 dotenv.config();
-
+// Creating the mysql connection pool
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '3306', 10),
@@ -26,5 +26,5 @@ async function testConnection() {
 }
 
 testConnection();
-
+// exporting the conncetion pool
 module.exports = pool;

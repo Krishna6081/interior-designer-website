@@ -5,6 +5,7 @@ import { Button } from "../../components/common/Button";
 import { Input } from "../../components/common/Input";
 import { useNotification } from "../../context/NotificationContext";
 import { projectService } from "../../services/projectService";
+import { getFullImageUrl } from "../../services/api";
 
 export const ProjectImages = () => {
   const { id } = useParams();
@@ -129,7 +130,8 @@ export const ProjectImages = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryList.map((imgObj, index) => {
-            const imgUrl = imgObj.image_url ? (imgObj.image_url.startsWith("/uploads") ? `http://localhost:5000${imgObj.image_url}` : imgObj.image_url) : imgObj;
+            const rawUrl = imgObj.image_url || (typeof imgObj === 'string' ? imgObj : '');
+            const imgUrl = getFullImageUrl(rawUrl);
             return (
               <div
                 key={imgObj.id || index}

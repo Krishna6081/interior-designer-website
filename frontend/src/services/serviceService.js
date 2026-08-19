@@ -1,11 +1,8 @@
-import api from "./api";
+import api, { getFullImageUrl } from "./api";
 
 const formatImageUrl = (url) => {
   if (!url) return null;
-  if (url.startsWith("/uploads")) {
-    return `http://localhost:5000${url}`;
-  }
-  return url;
+  return getFullImageUrl(url);
 };
 
 const mapService = (srv) => {

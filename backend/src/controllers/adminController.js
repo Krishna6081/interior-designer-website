@@ -29,9 +29,6 @@ const getDashboardStats = async (req, res, next) => {
 
     const recentProjects = recentProjectRows.map((p) => {
       let hero = p.hero_image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80';
-      if (hero && hero.startsWith('/uploads')) {
-        hero = `http://localhost:5000${hero}`;
-      }
       return {
         id: p.id,
         title: p.title,

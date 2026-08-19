@@ -1,4 +1,4 @@
-import api from "./api";
+import api, { getFullImageUrl } from "./api";
 import { initialSettingsData } from "../data/settings";
 
 const mapSettings = (s) => {
@@ -6,7 +6,7 @@ const mapSettings = (s) => {
   return {
     ...initialSettingsData,
     companyName: s.company_name || s.companyName || initialSettingsData.companyName,
-    logo: s.logo ? (s.logo.startsWith("/uploads") ? `http://localhost:5000${s.logo}` : s.logo) : initialSettingsData.logo,
+    logo: s.logo ? getFullImageUrl(s.logo) : initialSettingsData.logo,
     phone: s.phone || initialSettingsData.phone,
     email: s.email || initialSettingsData.email,
     address: s.address || initialSettingsData.address,
