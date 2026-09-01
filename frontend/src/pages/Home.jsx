@@ -33,7 +33,22 @@ import { initialContentData } from "../data/content";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const content = initialContentData;
+  const [content, setContent] = React.useState(() => {
+    const saved = localStorage.getItem("aura_content");
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.aboutPreview?.previewImage?.includes("photo-1618221195710")) {
+          parsed.aboutPreview.previewImage = "/philosophy.png";
+          localStorage.setItem("aura_content", JSON.stringify(parsed));
+        }
+        return parsed;
+      } catch (e) {
+        return initialContentData;
+      }
+    }
+    return initialContentData;
+  });
   const [settings, setSettings] = React.useState({
     companyName: "AURA & SPACES",
     phone: "+91 (020) 2612-8899",

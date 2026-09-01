@@ -77,7 +77,7 @@ export const About = () => {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#E5DED5]">
                 <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                  src="/about_who_we_are.png"
                   alt="Interior Atelier"
                   className="w-full h-full object-cover"
                 />

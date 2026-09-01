@@ -13,7 +13,7 @@ export const initialContentData = {
     btnText: "Discover Our Story",
     experienceYears: "14+",
     experienceLabel: "Years of Crafting Timeless Residences & Workspaces",
-    previewImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
+    previewImage: "/philosophy.png"
   },
   designerMessage: {
     name: "Aarav Singhania",
